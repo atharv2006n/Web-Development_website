@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>DEV.LAB Portfolio</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            font-family:Arial,sans-serif;
+
+            background:#f3f4f6;
+
+            color:#111827;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:25px 70px;
+
+            background:white;
+
+            border-bottom:1px solid #e5e7eb;
+
+            position:sticky;
+
+            top:0;
+
+            z-index:1000;
+        }
+
+        .navbar h1{
+
+            font-size:45px;
+
+            color:#7c3aed;
+        }
+
+        .navbar ul{
+
+            display:flex;
+
+            list-style:none;
+
+            gap:40px;
+        }
+
+        .navbar a{
+
+            color:#111827;
+
+            text-decoration:none;
+
+            font-size:20px;
+
+            transition:0.3s;
+        }
+
+        .navbar a:hover{
+
+            color:#7c3aed;
+        }
+
+        /* HERO */
+
+        .hero{
+
+            width:90%;
+
+            margin:auto;
+
+            min-height:90vh;
+
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            align-items:center;
+
+            gap:50px;
+        }
+
+        .badge{
+
+            background:#ede9fe;
+
+            padding:15px 30px;
+
+            border-radius:50px;
+
+            display:inline-block;
+
+            margin-bottom:25px;
+
+            color:#7c3aed;
+
+            font-weight:bold;
+        }
+
+        .hero h1{
+
+            font-size:100px;
+
+            line-height:1;
+
+            background:
+            linear-gradient(45deg,#7c3aed,#ec4899);
+
+            -webkit-background-clip:text;
+
+            -webkit-text-fill-color:transparent;
+        }
+
+        .hero p{
+
+            font-size:24px;
+
+            margin-top:30px;
+
+            color:#4b5563;
+
+            line-height:1.7;
+        }
+
+        .hero button{
+
+            margin-top:35px;
+
+            padding:18px 35px;
+
+            border:none;
+
+            border-radius:15px;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+            color:white;
+
+            background:
+            linear-gradient(45deg,#7c3aed,#ec4899);
+
+            transition:0.3s;
+        }
+
+        .hero button:hover{
+
+            transform:
+            translateY(-5px);
+        }
+
+        /* PROFILE CARD */
+
+        .profile-card{
+
+            background:white;
+
+            padding:50px;
+
+            border-radius:35px;
+
+            text-align:center;
+
+            border:1px solid #e5e7eb;
+
+            box-shadow:
+            0 0 20px rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .profile-card:hover{
+
+            transform:
+            translateY(-10px);
+        }
+
+        .circle{
+
+            width:160px;
+
+            height:160px;
+
+            border-radius:50%;
+
+            margin:auto;
+
+            background:
+            linear-gradient(45deg,#7c3aed,#ec4899);
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            font-size:60px;
+
+            font-weight:bold;
+
+            color:white;
+        }
+
+        .profile-card h2{
+
+            margin-top:30px;
+
+            font-size:50px;
+
+            color:#111827;
+        }
+
+        .profile-card p{
+
+            margin-top:10px;
+
+            color:#6b7280;
+
+            font-size:22px;
+        }
+
+        /* STATS */
+
+        .stats{
+
+            display:flex;
+
+            justify-content:space-around;
+
+            margin-top:40px;
+        }
+
+        .stats h3{
+
+            font-size:50px;
+
+            color:#7c3aed;
+        }
+
+        .stats span{
+
+            color:#4b5563;
+        }
+
+        /* EXPERIMENTS */
+
+        .experiments{
+
+            width:90%;
+
+            margin:100px auto;
+        }
+
+        .experiments h2{
+
+            font-size:60px;
+
+            margin-bottom:50px;
+
+            text-align:center;
+
+            color:#111827;
+        }
+
+        /* CARDS */
+
+        .card-container{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:30px;
+        }
+
+        .card{
+
+            background:white;
+
+            padding:35px;
+
+            border-radius:25px;
+
+            border:1px solid #e5e7eb;
+
+            box-shadow:
+            0 0 10px rgba(0,0,0,0.05);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:
+            translateY(-10px);
+
+            box-shadow:
+            0 0 20px rgba(124,58,237,0.2);
+        }
+
+        .card h3{
+
+            font-size:35px;
+
+            color:#111827;
+        }
+
+        .card p{
+
+            margin-top:15px;
+
+            color:#6b7280;
+
+            font-size:18px;
+
+            line-height:1.6;
+        }
+
+        .card button{
+
+            margin-top:25px;
+
+            width:100%;
+
+            padding:14px;
+
+            border:none;
+
+            border-radius:12px;
+
+            cursor:pointer;
+
+            font-size:17px;
+
+            color:white;
+
+            background:
+            linear-gradient(45deg,#7c3aed,#ec4899);
+
+            transition:0.3s;
+        }
+
+        .card button:hover{
+
+            transform:scale(1.03);
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            text-align:center;
+
+            padding:40px;
+
+            background:white;
+
+            border-top:1px solid #e5e7eb;
+
+            color:#6b7280;
+        }
+
+        footer h2{
+
+            color:#7c3aed;
+
+            margin-bottom:15px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .hero{
+
+                grid-template-columns:1fr;
+
+                text-align:center;
+            }
+
+            .hero h1{
+
+                font-size:65px;
+            }
+
+            .navbar{
+
+                flex-direction:column;
+
+                gap:20px;
+            }
+
+            .navbar ul{
+
+                gap:20px;
+            }
+
+            .profile-card h2{
+
+                font-size:35px;
+            }
+
+            .experiments h2{
+
+                font-size:45px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <h1>
+
+        DEV.LAB
+
+    </h1>
+
+    <ul>
+
+        <li><a href="#">Home</a></li>
+
+        <li><a href="#experiments">Experiments</a></li>
+
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="badge">
+
+            SESSION 2025-26
+
+        </span>
+
+        <h1>
+
+            Web Development
+
+        </h1>
+
+        <p>
+
+            Web Development Lab Experiments
+            using HTML, CSS, XML and XSLT.
+
+        </p>
+
+        <a href="#experiments">
+
+            <button>
+
+                Explore Work
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <div class="profile-card">
+
+        <div class="circle">
+
+            AN
+
+        </div>
+
+        <h2>
+
+            Atharv Nanavare
+
+        </h2>
+
+        <p>
+
+            Web Development Lab
+
+        </p>
+
+        <div class="stats">
+
+            <div>
+
+                <h3>13+</h3>
+
+                <span>Experiments</span>
+
+            </div>
+
+            <div>
+
+                <h3>75</h3>
+
+                <span>Roll No</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section
+class="experiments"
+id="experiments">
+
+    <h2>
+
+        Lab Experiments
+
+    </h2>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>Experiment 1</h3>
+            <p>Static Web Page</p>
+            <a href="Ex no 1.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 2</h3>
+            <p>Text Formatting</p>
+            <a href="EX NO 2.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 3</h3>
+            <p>Ordered & Unordered List</p>
+            <a href="EX NO 3.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 4</h3>
+            <p>HTML Lists</p>
+            <a href="EX NO 4.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 5</h3>
+            <p>Image Properties</p>
+            <a href="EX NO 5.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 6</h3>
+            <p>Multimedia Integration</p>
+            <a href="EX NO 6.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 7</h3>
+            <p>Hyperlinks</p>
+            <a href="EX NO 7.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 8</h3>
+            <p>Tables</p>
+            <a href="EX NO 8.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 9</h3>
+            <p>Registration Form</p>
+            <a href="EX NO 9.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 10</h3>
+            <p>Resume Webpage</p>
+            <a href="EX NO 10.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 11</h3>
+            <p>XML and CSS Styling</p>
+            <a href="Ex no 11/books.xml">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 12</h3>
+            <p>XML and XSL Transformation</p>
+            <a href="Exp no 12/catout.html">
+                <button>View</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Experiment 13</h3>
+            <p>XML with XSL Student Data</p>
+            <a href="Exp no 13/student.xml">
+                <button>View</button>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<footer id="contact">
+
+    <h2>
+
+        DEV.LAB
+
+    </h2>
+
+    <p>
+
+        © 2026 Atharv Nanavare
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>
